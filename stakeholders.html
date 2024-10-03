@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+ <style>
+body {
+  font-family: sans-serif;
+  background: #dff9fb;
+  overflow-x: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #212529;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  color: white;
+  font-size: 24px;
+}
+
+nav {
+  display: flex;
+  width:700px;
+  align-items: center;
+}
+
+nav .search-bar{
+  display: flex;
+}
+nav a{
+  margin-left: 0.4rem;
+  margin-left:50px;
+}
+
+nav i{
+  font-size: 2rem;
+  padding:0.2rem;
+  background-color: #fff;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  cursor:pointer;
+}
+
+.search{
+  height: 2rem;
+  padding: 0.2rem;
+  font-size:16px;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  outline: none;
+  border: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  margin-top: 20px;
+}
+
+section {
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.myimage{
+  width: 100%;
+  min-height:100vh;
+  background: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(assets/img/image.jpeg) no-repeat;
+  background-size: cover;
+  
+  background-attachment: fixed;
+  z-index:0;
+  overflow: hidden;
+  
+}
+
+.myimage img{
+  width:100%;
+}
+
+@media (max-width: 1080px) {
+  html{
+    font-size: 70%;
+  }
+  h1{
+    font-size: 2rem;
+  }
+
+  nav{
+    flex-direction: column;
+    gap: 20px;
+  }
+   nav a{
+        margin-left:30px;
+    }
+  .search{
+    width: 13rem;
+  }
+  .myimage{
+    background: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(assets/img/image.jpeg) no-repeat;
+  
+  }
+  nav{  
+    margin-left:0px;
+  }
+  
+}
+ </style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Dashboard</h1>
+    <nav>
+      <div class="search-bar">
+      <input type="text" class="search" placeholder="@industry name"><i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="link">
+        <a href="fire.html">AQI</a> &nbsp
+        <a href="WQI.html">WQI</a>
+        <a href="AQI PREDICTION.html">Prediction</a>
+  
+        <!-- <a href="analysis.html">Analysis</a> &nbsp -->
+      </div>
+     
+    </nav>
+  </header>
+<!-- add the image  -->
+<div class="container">
+<div class="myimage">
+</div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+
+</body>
+</html>

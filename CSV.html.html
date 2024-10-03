@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Data Entry</title>
+</head>
+<body>
+    <h1>CSV Data Entry</h1>
+    <label for="S.NO">S.NO:</label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="GAS NAME">GAS NAME:</label>
+    <input type="text" id="email" required><br><br>
+
+    <button onclick="addToCSV()">Add to CSV</button>
+    <a id="downloadLink" style="display: none">Download CSV</a>
+
+    <script>
+        let data = []; // Array to store collected data
+
+        function addToCSV() {
+            const name = encodeURIComponent(document.getElementById("name").value);
+            const email = encodeURIComponent(document.getElementById("email").value);
+
+            data.push([name, email]); // Add data to the array
+
+            // Clear input fields
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+
+            generateCSV(); 
+        }
+
+        function generateCSV() {
+            const csvContent = "Name,Email\n" + data.map(row => row.join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: "text/csv" });
+            const url = URL.createObjectURL(blob);
+
+            // Create a download link
+            const downloadLink = document.getElementById("downloadLink");
+            downloadLink.href = url;
+            downloadLink.download = "data.csv";
+            downloadLink.style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<html>
+    <style>
+        .container{
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .container div{
+            display: position ;
+            align-items: center;
+        }
+        .table1 h1{
+            text-align:center;
+        }
+        th,td{
+            padding: 29px;
+        }
+        body{
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+            justify-content:center;
+        }
+        th{
+            background-color:black;
+            color:white;
+        }
+
+        td{
+            background-color: white;
+            color: black;
+        }
+        .container a{
+            margin-left:320px;
+        }
+        .container button{
+            margin-top: 2rem;
+            width: 10rem;
+            height: 3rem;
+            border: none;
+            outline: none;
+            margin-left:350px;
+            color: #fff;
+            background-color: green;
+            border-radius: 1.3rem;
+            cursor: pointer;
+        }
+
+    </style>
+<body>
+    
+    <div class="container">
+        <div class="table1">
+            <h1>WQI</h1>
+            <table border="1px"> 
+                <tr>
+                    <th>S.NO</th>
+                    <th>Time</th>
+                    <th>TEMP</th>
+                    <th>BOD</th>
+                    <th>TSS</th>
+                    <th>DO</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td id="dt1" class="dt">-</td>
+                    <td id="co2">-</td>
+                    <td id="nh3">-</td>
+                    <td id="bz">-</td>
+                    <td id="CO">-</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td id="dt2" class="dt">-</td>
+                    <td id="co22">-</td>
+                    <td id="nh32">-</td>
+                    <td id="bz2">-</td>
+                    <td id="CO2x">-</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td id="dt3" class="dt">-</td>
+                    <td id="co23">-</td>
+                    <td id="nh33">-</td>
+                    <td id="bz3">-</td>
+                    <td id="CO3">-</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td id="dt4" class="dt">-</td>
+                    <td id="co24">-</td>
+                    <td id="nh34">-</td>
+                    <td id="bz4">-</td>
+                    <td id="CO4">-</td>
+                </tr>
+            </table>
+
+            <button onclick="generateCSV()">Download Data</button><br><br>
+            
+        </div>
+
+
+
+        <div class="analysis">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width,initial-scale=1.0">
+              <title>Analysis</title>
+          
+              <!-- Montserrat Font -->
+              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+          
+              <!-- Material Icons -->
+              <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+          
+              <!-- Custom CSS -->
+              <link rel="stylesheet" href="assets/css/analysis.css">
+            </head>
+            <body>
+          
+                    <div class="charts-card">
+                      <h2 class="chart-title">Analysis</h2>
+                      <div id="area-chart"></div>
+                    </div>
+          
+                  <!-- Scripts -->
+              <!-- ApexCharts -->
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+              <!-- Custom JS -->
+              <script src="assets/js/analysis.js"></script>
+              <script type="module">
+                // Import the functions you need from the SDKs you need
+              import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+              import { getDatabase, ref, child, get, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+          
+              const firebaseConfig = {
+                  apiKey: "AIzaSyBI_KYCnyVtRKkzBD42sLnFMMMoW6baIYI",
+                  authDomain: "green-house-monitoring-d4689.firebaseapp.com",
+                  databaseURL: "https://green-house-monitoring-d4689-default-rtdb.firebaseio.com",
+                  projectId: "green-house-monitoring-d4689",
+                  storageBucket: "green-house-monitoring-d4689.appspot.com",
+                  messagingSenderId: "971383452008",
+                  appId: "1:971383452008:web:cf0174fa19e53790d066dd",
+                  measurementId: "G-SFGW7H4BMJ"
+              };
+          
+              // Initialize Firebase
+              const app = initializeApp(firebaseConfig);
+              const database = getDatabase(app);
+          
+              const dbRef = ref(getDatabase(app));
+          
+          
+              var starCountRef = ref(database, '/Greenhouse gas/CO2');
+              onValue(starCountRef, (snapshot) => {
+                  var data = snapshot.val();
+                  areaChartOptions.series[0].data[0] = snapshot.val();
+              });
+          
+              var starCountRef = ref(database, '/Greenhouse gas/NH3');
+              onValue(starCountRef, (snapshot) => {
+                  var data = snapshot.val();
+                  areaChartOptions.series[1].data[0] = snapshot.val();
+              });
+          
+              var starCountRef = ref(database, '/Greenhouse gas/Benzene PPM');
+              onValue(starCountRef, (snapshot) => {
+                  var data = snapshot.val();
+                  areaChartOptions.series[2].data[0] = snapshot.val();
+              });
+          
+              var starCountRef = ref(database, '/Greenhouse gas/Carbon Monoxide PPM');
+              onValue(starCountRef, (snapshot) => {
+                  var data = snapshot.val();
+                  areaChartOptions.series[3].data[0] = snapshot.val();
+              });
+          
+              </script>
+            </body>
+        </div>
+<!-- 
+        <div class="table2">
+            <h1>WQI</h1>
+            <table border="1px"> 
+                <tr>
+                    <th>S.NO</th>
+                    <th>GASES</th>
+                    <th>PPM</th>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>Co2</td>
+                    <td id="co2"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>NH3</td>
+                    <td id="nh3"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Benzene</td>
+                    <td id="bz"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Carbon Monoxide</td>
+                    <td id="CO"></td>
+                </tr>
+            </table>
+            <button onclick="generateCSV()">Add to CSV</button>
+            <a id="downloadLink" style="display: none;">Download CSV</a> 
+        </div>
+
+    </div> -->
+
+    
+
+</body>
+
+<script type="module" src="assets/js/air.js"></script>
+<script type="module" src="assets/js/water.js"></script>
+
+<script>
+
+let csv_data = []; // Array to store collected data
+
+        
+
+
+
+    var today=new Date();
+    var str=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+
+    var dt=document.querySelector("#dt1");
+    var dt2=document.querySelector("#dt2");
+    var dt3=document.querySelector("#dt3");
+    var dt4=document.querySelector("#dt4");
+    dt.innerHTML=str;
+
+
+    
+    var a=document.querySelector("#co2");
+    var a2=document.querySelector("#co22");
+    var a3=document.querySelector("#co23");
+    var a4=document.querySelector("#co24");
+
+
+    var b=document.querySelector("#nh3");
+    var b2=document.querySelector("#nh32");
+    var b3=document.querySelector("#nh33");
+    var b4=document.querySelector("#nh34");
+
+
+    var c=document.querySelector("#bz");
+    var c2=document.querySelector("#bz2");
+    var c3=document.querySelector("#bz3");
+    var c4=document.querySelector("#bz4");
+
+
+    var d=document.querySelector("#CO");
+    var d2=document.querySelector("#CO2x");
+    var d3=document.querySelector("#CO3");
+    var d4=document.querySelector("#CO4");
+
+
+    function loadSession(){
+        let data=sessionStorage.getItem("time")||{};
+        if(data.length>0){
+            data=JSON.parse(data);
+            dt2.innerHTML=data.t1;
+            dt3.innerHTML=data.t2;
+            dt4.innerHTML=data.t3;
+
+            a2.innerHTML=data.a1;
+            a3.innerHTML=data.a2;
+            a4.innerHTML=data.a3;
+
+            b2.innerHTML=data.b1;
+            b3.innerHTML=data.b2;
+            b4.innerHTML=data.b3;
+
+            c2.innerHTML=data.c1;
+            c3.innerHTML=data.c2;
+            c4.innerHTML=data.c3;
+
+            d2.innerHTML=data.d1;
+            d3.innerHTML=data.d2;
+            d4.innerHTML=data.d3;
+        }
+    }
+
+
+    function generateCSV() {
+            const csvContent = "Time,CO2,NHgxfgxggx3,Benzene,CO\n" + csv_data.map(row => row.join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: "text/csv" });
+            const url = URL.createObjectURL(blob);
+
+            // Create a download link
+            const downloadLink = document.getElementById("downloadLink");
+            downloadLink.href = url;
+            downloadLink.download = "data.csv";
+            downloadLink.style.display = "block";
+        }
+
+
+    
+
+
+    loadSession();
+
+    
+    
+    setTimeout(()=>{
+
+
+        
+        const formData=JSON.parse(sessionStorage.getItem("time"))||{};
+
+        formData.t3=dt3.innerHTML;
+        formData.t2=dt2.innerHTML;
+        formData.t1=str;
+        const Time = str;
+
+        formData.a3=a3.innerHTML;
+        formData.a2=a2.innerHTML;
+        formData.a1=a.innerHTML;
+        const CO2 = a.innerHTML;
+
+        formData.b3=b3.innerHTML;
+        formData.b2=b2.innerHTML;
+        formData.b1=b.innerHTML;
+        const NH3 = b.innerHTML;
+
+        formData.c3=c3.innerHTML;
+        formData.c2=c2.innerHTML;
+        formData.c1=c.innerHTML;
+        const Benzene = c.innerHTML;
+
+        formData.d3=d3.innerHTML;
+        formData.d2=d2.innerHTML;
+        formData.d1=d.innerHTML;
+        const CO = d.innerHTML;
+        
+        csv_data.push([Time, CO2, NH3, Benzene, CO]);
+        sessionStorage.setItem("time", JSON.stringify(formData));
+
+        
+        
+        location.reload();
+        loadSession();
+     
+        
+        location.reload();
+    },5000);
+
+
+
+
+
+</script>
+
+</html>

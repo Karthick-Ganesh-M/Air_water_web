@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+  body{
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
+div{
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  border-radius:10%;
+}
+
+
+
+h1 i{
+  color: gold;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.button{
+  margin-right: 1rem;
+}
+textarea{
+  font-size: 16px;
+
+  padding: 10px;
+}
+
+
+.form input[type="text"]{
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 3px;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+input[type="submit"]{
+  color: white;
+  background-color: green;
+  font-size: 20px;
+  width: 6rem;
+  height: 3rem;
+  padding: 0.5rem 0;
+  
+  border: none;
+  outline: none;
+  border-radius: 0.7rem;
+  resize: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+
+  body{
+    font-size: 18px;
+    width:80%;
+    height:400px;;
+  }
+  
+  textarea{
+    font-size: 2rem;
+    width: 100%;
+
+  }
+  
+  .form{
+    width: 50%;
+  }
+
+  .form input[type="text"]{
+    width: 80%;
+    font-size: 2rem;
+  }
+  input[type="submit"]{
+    font-size: 2rem;
+    width: 12rem;
+    height: 7rem;
+  }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+<div>
+  <h1><i class="fa-solid fa-triangle-exclamation"></i> Alert Message</h1>
+<form class="form" onsubmit="alert('Message sent successfully')">
+  <input type="text" placeholder="@official" required>
+  <input type="text" placeholder="@stack-holder" required>
+  <textarea name="msg" id="msg" cols="90" rows="12" placeholder="Enter Text here..." required></textarea><br>
+  <div class="btn">
+  <button class="button button1" value="Greetings to our valued stackholders">Greetings to our valued stackholders</button> 
+  <button class="button button1" value="Urgent action required">Urgent action required</button>
+  <button class="button button1" value="Give your commitment to a sustainable and healthy planet">Give your commitment to a sustainable and healthy planet
+  </button> <br>
+  </div>
+  <input type="submit" value="submit" id="submit">
+</form>
+
+</div>
+<script>
+  var btns=document.querySelectorAll(".button");
+  var text=document.querySelector("textarea");
+  btns.forEach(btn => {
+    btn.addEventListener('click',(e)=>{
+      e.preventDefault();
+      var value=btn.value;
+      console.log(value);
+      text.value+=value;
+      
+    });
+
+    var submit=document.querySelector("#submit");
+  
+
+  });
+
+  
+</script>
+</body>
+</html>
+
+

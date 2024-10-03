@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestion</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    body{
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+        flex-direction: column;
+    }
+
+    .divide{
+        display: flex;
+
+    }
+    img{
+        width: 600px;
+        height:380px
+
+    }
+
+    .content{
+        width: 600px;
+        background-color: #34495e;
+        color: #fff;
+        margin: 2rem;
+        border-radius: 0.3rem;
+        padding: 1rem;
+    }
+
+    @media (max-width:1080px){
+        .divide{
+            width: 90%;
+            flex-direction: column;
+        }
+        .sugg{
+            width: 100%;
+        }
+        .content{
+            width: 90%;
+            margin: 2rem 0;
+        }
+
+        img{
+            width:100%;
+            height: 250px;
+        }
+    }
+</style>
+<body>
+    <h1>Suggestion</h1>
+    <div class="divide">
+        <img src="assets/img/sugg.jpeg" alt="">
+        <div class="sugg">
+            <div class="content"><b>Chemical Catalysis: </b>CO2 can be chemically converted into products like methanol, ethanol, or other hydrocarbons using catalysts.</div>
+            <div class="content"><b>Biological Processes: </b>Microorganisms can be used to consume CO2 and produce biofuels, plastics, or other bioproducts.</div>
+            <div class="content"><b>Electrochemical Reduction: </b>Electrochemical cells can reduce CO2 to produce fuels and chemicals using electricity.</div>
+        </div>
+</body>
+</html>

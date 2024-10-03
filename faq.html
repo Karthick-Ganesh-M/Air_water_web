@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      justify-content: space-between;
+    }
+
+    .faq-column {
+      max-width: 50%;
+      width: 100%;
+      margin: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .faq-heading {
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e0e0e0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .faq-question,
+    .faq-answer {
+      padding: 20px;
+    }
+
+    .faq-question {
+      background-color: #3498db;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background-color: #2980b9;
+    }
+
+    .faq-answer {
+      display: none;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      padding: 0 20px;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-toggle {
+      font-size: 24px;
+    }
+    h1{
+        text-align:Center;
+        margin:20px;
+        font-family:sans-serif;
+        font-size:30px;
+    }
+  </style>
+</head>
+<body>
+<h1> FAQs</h1>
+
+    <div style="display:flex">
+        <div class="faq-column">
+        <div class="faq-heading"> AQI</div>.
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(1)">
+            <span class="faq-number">1</span>
+            What is the difference between Air quality and Air quality index?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer1"> “Air Quality” represents the absolute nature of air pollution. “Air Quality Index” is an extract from air quality as a number to simplify the pollution alert system and to support public awareness.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(2)">
+            <span class="faq-number">2</span>
+            What is the meaning of AQI=500 or AQI=999 ?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer2">If absolute PM2.5 concentration is 500 or 1000 or 3000 g/m3, the AQI index will show 500 or 999, depending on the selected scale.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(3)">
+            <span class="faq-number">3</span>
+            Diseases caused by PM2.5?
+
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer3">PM2.5 pollution is directly linked to cause or exacerbate asthma, collapsed lung, chronic bronchitis, pneumonia, blocked lung artery, lung cancer,  complications during pregnancy, early childhood brain function impairmentand.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(4)">
+            <span class="faq-number">4</span>
+            How many monitors are required to calculate AQI of a city?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer4"> If Monitoring stations are established as many as possible, it leads to create a representative pollution map of the city and this dependent on the local institutional capacity.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(5)">
+            <span class="faq-number">5</span>
+            Every criteria pollutant has an index value, then which one decides “AQI of the day”?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer5">If AQI is calculated for more than 2 pollutants, these are the two known methods for picking “AQI of the day”.</div>
+        </div>
+        </div>
+
+        <div class="faq-column">
+        <div class="faq-heading"> WQI</div>.
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(6)">
+            <span class="faq-number">6</span>
+                 Why (WQI) shows negative correlation with pH value and positive with others parameters?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer6">As pH value decreases, water tends to become more acidic, making it less suitable for consumption or aquatic life. While parameters like DO and TDS have a positive correlation with the WQI as they indicate healthier water conditions.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(7)">
+            <span class="faq-number">7</span>
+            What is ORP in water?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer7">Oxidation-reduction potential (ORP) measures the ability of a lake or river to cleanse itself or break down waste products, such as contaminants and dead plants and animals. When the ORP value is high, there is lots of oxygen present in the water.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(8)">
+            <span class="faq-number">8</span>
+            What are the 4 types of water quality?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer8">Water quality can be classified into four types—potable water, palatable water, contaminated (polluted) water, and infected water.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(9)">
+            <span class="faq-number">9</span>
+            Why is water polar?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer9">Water molecule has two poles - a positive charge on the hydrogen pole (side) and a negative charge on the oxygen pole (side). We say that the water molecule is electrically polar.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(10)">
+            <span class="faq-number">10</span>
+            What is the World Water Quality Alliance and what is its role?
+            <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer" id="answer10">The World Water Quality Alliance (WWQA), represents a voluntary and flexible global multi-stakeholders network that advocates the central role of freshwater quality.</div>
+        </div>
+        </div>
+    </div>
+
+<script>
+  function toggleAnswer(questionNumber) {
+    var answerId = 'answer' + questionNumber;
+    var answerElement = document.getElementById(answerId);
+    var faqItem = answerElement.parentElement;
+
+    if (faqItem.classList.contains('active')) {
+      faqItem.classList.remove('active');
+      answerElement.style.display = 'none';
+    } else {
+      faqItem.classList.add('active');
+      answerElement.style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
